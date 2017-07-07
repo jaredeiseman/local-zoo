@@ -5,8 +5,9 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
     <p>app component</p>
-    <animal-list [childAnimals]="animals"></animal-list>
+    <animal-list [childAnimals]="animals" (clickSender)="editAnimal($event)"></animal-list>
     <add-animal (clickSender)="addAnimal($event)"></add-animal>
+    <edit-animal *ngIf="animalBeingEdited" [animalBeingEdited]="animalBeingEdited" (doneEditingClicked)="doneEditing()"></edit-animal>
   `
 })
 
@@ -19,7 +20,17 @@ export class AppComponent {
     new Animal('Grizzly Bear', 'burrith', 1, 'Carnivore', 'Northern Trail', 'male', 'Hibernating', 'Not having any honey', 2),
   ];
 
+  animalBeingEdited = null;
+
   addAnimal(animal) {
     this.animals.push(animal);
+  }
+
+  editAnimal(animal: Animal) {
+    this.animalBeingEdited = animal;
+  }
+
+  doneEditing() {
+    this.animalBeingEdited = null;
   }
 }

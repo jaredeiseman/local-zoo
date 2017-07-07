@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal.model';
 
 @Component({
@@ -18,16 +18,22 @@ import { Animal } from './animal.model';
       <li>Likes: {{animal.likes}}</li>
       <li>Dislikes: {{animal.dislikes}}</li>
       <li>Caretakers: {{animal.caretakers}}</li>
+      <li><button (click)="editAnimal(animal)">Edit This Animal's Information</button>
     </ul>
   `
 })
 
 export class AnimalListComponent {
   @Input() childAnimals: Animal[];
+  @Output() clickSender = new EventEmitter();
 
   ageToFilterBy: number = null;
 
   filterByAge(age) {
     this.ageToFilterBy = age;
+  }
+
+  editAnimal(animal) {
+    this.clickSender.emit(animal);
   }
 }
