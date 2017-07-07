@@ -8,6 +8,7 @@ export class Animal {
               public likes: string,
               public dislikes: string,
               public caretakers: number,
-              public imgURL: string = ''
+              public imgURL: string = '',
+              public admitted: object = new Date()
   ) {}
 }

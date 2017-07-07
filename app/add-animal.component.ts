@@ -27,9 +27,11 @@ import { Animal } from './animal.model';
         <label for="dislikes">dislikes</label>
         <input type="text" name="dislikes" ngModel>
         <label for="caretakers">caretakers</label>
-        <input type="text" name="caretakers" ngModel>
-        <button type="submit">Submit</button>
+        <input type="number" name="caretakers" ngModel>
+        <label for="img">Image URL</label>
+        <input type="text" name="img" ngModel>
       </div>
+      <button type="submit">Submit</button>
     </form>
   `
 })
@@ -47,7 +49,8 @@ export class AddAnimalComponent {
                                form.value.sex,
                                form.value.likes,
                                form.value.dislikes,
-                               form.value.caretakers);
+                               form.value.caretakers,
+                               form.value.img);
     this.clickSender.emit(newAnimal);
   }
 }

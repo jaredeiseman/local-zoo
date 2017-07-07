@@ -20,6 +20,7 @@ import { Animal } from './animal.model';
       <span>Likes: {{animal.likes}}</span>
       <span>Dislikes: {{animal.dislikes}}</span>
       <span>Caretakers: {{animal.caretakers}}</span>
+      <span>Admitted: {{formatDate(animal.admitted)}}</span>
       <button (click)="editAnimal(animal)">Edit This Animal's Information</button>
     </div>
   `
@@ -30,6 +31,21 @@ export class AnimalListComponent {
   @Output() clickSender = new EventEmitter();
 
   ageToFilterBy: number = null;
+
+  formatDate(date) {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return `${monthNames[monthIndex]} ${day}, ${year}`;
+  }
 
   findPhoto(animal) {
     if (animal.imgURL !== '') {
