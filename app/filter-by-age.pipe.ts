@@ -11,7 +11,7 @@ export class FilterByAgePipe implements PipeTransform {
   transform(input: Animal[], age) {
     var output: Animal[] = [];
     for (var i = 0; i < input.length; i++) {
-      if (input[i].age >= age) {
+      if (input[i].age <= age) {
         output.push(input[i]);
       }
     }

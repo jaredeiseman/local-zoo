@@ -1,0 +1,40 @@
+animal-list {
+  display: block;
+  margin-bottom: 30px;
+
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+
+  ul {
+    width: 30%;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    list-style-type: none;
+
+    &:nth-of-type(3n+2) {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    button {
+      font-size: 18px;
+      width: 100%;
+      padding: 15px;
+      background: seagreen;
+      color: white;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: color .3s, background .3s, border .3s;
+
+      &:hover {
+        color: seagreen;
+        background: white;
+        border: 1px solid seagreen;
+      }
+    }
+  }
+}

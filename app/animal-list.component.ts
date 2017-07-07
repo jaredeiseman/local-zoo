@@ -4,10 +4,11 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-    <p>Animal List Component</p>
-    <label for="age">Enter an age to filter by:</label>
-    <input type="number" name="age" #age>
-    <button (click)="filterByAge(age.value); age.value = '';">Filter</button>
+    <div class="filter">
+      <label for="age">Enter a maximum age to display:</label>
+      <input type="number" name="age" #age>
+      <button (click)="filterByAge(age.value); age.value = '';">Filter</button>
+    </div>
     <ul *ngFor="let animal of childAnimals | filterByAge:ageToFilterBy">
       <li>Species: {{animal.species}}</li>
       <li>Name: {{animal.name}}</li>

@@ -4,10 +4,13 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
-    <p>app component</p>
-    <animal-list [childAnimals]="animals" (clickSender)="editAnimal($event)"></animal-list>
-    <add-animal (clickSender)="addAnimal($event)"></add-animal>
-    <edit-animal *ngIf="animalBeingEdited" [animalBeingEdited]="animalBeingEdited" (doneEditingClicked)="doneEditing()"></edit-animal>
+    <header></header>
+    <div class="container">
+      <animal-list [childAnimals]="animals" (clickSender)="editAnimal($event)"></animal-list>
+      <add-animal (clickSender)="addAnimal($event)"></add-animal>
+      <edit-animal *ngIf="animalBeingEdited" [animalBeingEdited]="animalBeingEdited" (doneEditingClicked)="doneEditing()"></edit-animal>
+    </div>
+    <footer></footer>
   `
 })
 
