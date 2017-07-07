@@ -7,6 +7,11 @@
 ## Description
 An application for "Zoo Employees" to be able to view, add, and edit information about animal residents of the zoo using the Angular JavaScript framework.
 
+## Screenshots
+<img src="https://raw.githubusercontent.com/jaredeiseman/local-zoo/master/screenshots/1.png" style="width: 100%;">
+<img src="https://raw.githubusercontent.com/jaredeiseman/local-zoo/master/screenshots/2.png" style="width: 100%;">
+<img src="https://raw.githubusercontent.com/jaredeiseman/local-zoo/master/screenshots/3.png" style="width: 100%;">
+
 ## Planning
 
 ### User Story
