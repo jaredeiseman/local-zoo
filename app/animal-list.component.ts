@@ -5,7 +5,10 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
     <p>Animal List Component</p>
-    <ul *ngFor="let animal of childAnimals">
+    <label for="age">Enter an age to filter by:</label>
+    <input type="number" name="age" #age>
+    <button (click)="filterByAge(age.value); age.value = '';">Filter</button>
+    <ul *ngFor="let animal of childAnimals | filterByAge:ageToFilterBy">
       <li>Species: {{animal.species}}</li>
       <li>Name: {{animal.name}}</li>
       <li>Age: {{animal.age}}</li>
@@ -21,4 +24,10 @@ import { Animal } from './animal.model';
 
 export class AnimalListComponent {
   @Input() childAnimals: Animal[];
+
+  ageToFilterBy: number = null;
+
+  filterByAge(age) {
+    this.ageToFilterBy = age;
+  }
 }
