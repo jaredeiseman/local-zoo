@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Animal } from './animal.model';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-
+  animals: Animal[];
 }
