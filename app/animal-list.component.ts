@@ -9,18 +9,19 @@ import { Animal } from './animal.model';
       <input type="number" name="age" #age>
       <button (click)="filterByAge(age.value); age.value = '';">Filter</button>
     </div>
-    <ul *ngFor="let animal of childAnimals | filterByAge:ageToFilterBy">
-      <li>Species: {{animal.species}}</li>
-      <li>Name: {{animal.name}}</li>
-      <li>Age: {{animal.age}}</li>
-      <li>Diet: {{animal.diet}}</li>
-      <li>Location: {{animal.location}}</li>
-      <li>Sex: {{animal.sex}}</li>
-      <li>Likes: {{animal.likes}}</li>
-      <li>Dislikes: {{animal.dislikes}}</li>
-      <li>Caretakers: {{animal.caretakers}}</li>
-      <li><button (click)="editAnimal(animal)">Edit This Animal's Information</button>
-    </ul>
+    <div class="card" *ngFor="let animal of childAnimals | filterByAge:ageToFilterBy">
+      <img [src]="findPhoto(animal)">
+      <span>Species: {{animal.species}}</span>
+      <span>Name: {{animal.name}}</span>
+      <span>Age: {{animal.age}}</span>
+      <span>Diet: {{animal.diet}}</span>
+      <span>Location: {{animal.location}}</span>
+      <span>Sex: {{animal.sex}}</span>
+      <span>Likes: {{animal.likes}}</span>
+      <span>Dislikes: {{animal.dislikes}}</span>
+      <span>Caretakers: {{animal.caretakers}}</span>
+      <button (click)="editAnimal(animal)">Edit This Animal's Information</button>
+    </div>
   `
 })
 
@@ -29,6 +30,14 @@ export class AnimalListComponent {
   @Output() clickSender = new EventEmitter();
 
   ageToFilterBy: number = null;
+
+  findPhoto(animal) {
+    if (animal.imgURL !== '') {
+      return animal.imgURL;
+    } else {
+      return '/resources/img/placeholder.png';
+    }
+  }
 
   filterByAge(age) {
     this.ageToFilterBy = age;
