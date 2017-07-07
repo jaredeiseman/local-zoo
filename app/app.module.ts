@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { FormsModule }  from '@angular/forms';
 
+import { AnimalListComponent } from './animal-list.component';
+
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, AnimalListComponent ],
   bootstrap:    [ AppComponent ]
 })
 

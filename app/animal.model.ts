@@ -6,6 +6,7 @@ export class Animal {
               public location: string,
               public sex: string,
               public likes: string,
-              public dislikes: string
+              public dislikes: string,
+              public caretakers: number
   ) {}
 }
